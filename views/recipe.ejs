@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Recipe</title>
+</head>
+
+<body style="overflow: scroll">
+
+    <div class="page-header">
+        <a href="/logout" class="btn btn-default btn-sm" style="background: #ed2553; color: white">Logout</a>
+    </div>
+    <!-- got button from https://codepen.io/timohausmann/pen/icCer -->
+    <button id="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add a
+        recipe</button>
+    <!-- end of button -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Recipe</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div style="font-size: 20px; display: flex; flex-direction: column; padding-left: 15px; padding-right: 20px">
+                    <input style="font-size: 20px; margin-top: 20px; margin-bottom: 20px;" type="text" id="pizza-title" name="pizza-title"
+                        placeholder="title">
+                    <input type="text" id="pizza-recipe" name="pizza-recipe" placeholder="recipe">
+                </div>
+                <div class="modal-body">
+                    <form style="display: flex; flex-direction: column" class="recipe-form" id="formStyles" action="/pizza"
+                        method="POST">
+                        <a id="userId" data-id=<%=user.id %>></a>
+
+                        <label for="vegy1">Cucumber</label>
+                        <input type="number" class="quant" name="vegy1" data-name="cucumber" min="0" max="3" value="0">
+
+                        <label for="vegy2">Tomato</label>
+                        <input type="number" class="quant" name="vegy2" data-name="tomato" min="0" max="3" value="0">
+
+                        <label for="vegy3">Pineapple</label>
+                        <input type="number" class="quant" name="vegy3" data-name="pineapple" min="0" max="3" value="0">
+
+                        <label for="vegy4">Avocado</label>
+                        <input type="number" class="quant" name="vegy4" data-name="avocado" min="0" max="3" value="0">
+
+                        <label for="vegy5">Eggplant</label>
+                        <input type="number" class="quant" name="vegy5" data-name="eggplant" min="0" max="3" value="0">
+
+                        <label for="vegy6">Olive</label>
+                        <input type="number" class="quant" name="vegy6" data-name="olive" min="0" max="3" value="0">
+
+                        <label for="vegy7">Onion</label>
+                        <input type="number" class="quant" name="vegy7" data-name="onion" min="0" max="3" value="0">
+
+                        <label for="vegy8">Mushroom</label>
+                        <input type="number" class="quant" name="vegy8" data-name="mushroom" min="0" max="3" value="0">
+
+                        <label for="vegy9">Garlic</label>
+                        <input type="number" class="quant" name="vegy9" data-name="garlic" min="0" max="3" value="0">
+
+                        <label for="vegy10">Spinach</label>
+                        <input type="number" class="quant" name="vegy10" data-name="spinach" min="0" max="3" value="0">
+
+                        <label for="vegy11">Cilantro</label>
+                        <input type="number" class="quant" name="vegy11" data-name="cilantro" min="0" max="3" value="0">
+
+                        <label for="vegy12">Chicken</label>
+                        <input type="number" class="quant" name="vegy12" data-name="chicken" min="0" max="3" value="0">
+
+                        <label for="vegy13">Anchovy</label>
+                        <input type="number" class="quant" name="vegy13" data-name="anchovy" min="0" max="3" value="0">
+
+                        <label for="vegy14">Bacon</label>
+                        <input type="number" class="quant" name="vegy14" data-name="bacon" min="0" max="3" value="0">
+
+                        <label for="vegy15">Sausage</label>
+                        <input type="number" class="quant" name="vegy15" data-name="sausage" min="0" max="3" value="0">
+
+                        <label for="vegy16">Beef</label>
+                        <input type="number" class="quant" name="vegy16" data-name="beef" min="0" max="3" value="0">
+
+                        <label for="vegy17">Ham</label>
+                        <input type="number" class="quant" name="vegy17" data-name="ham" min="0" max="3" value="0">
+
+                        <label for="vegy18">Pepperoni</label>
+                        <input type="number" class="quant" name="vegy18" data-name="pepperoni" min="0" max="3" value="0">
+
+                        <label for="vegy19">Salami</label>
+                        <input type="number" class="quant" name="vegy19" data-name="salami" min="0" max="3" value="0">
+
+                        <label for="vegy20">Banana</label>
+                        <input type="number" class="quant" name="vegy20" data-name="banana" min="0" max="3" value="0">
+
+                        <p id="totalCal"></p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary addPizza">Add Recipe</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="otherRecipes" style="    padding-top: 190px; padding-left: 410px;">
+        <table class="container">
+
+
+            <% for(var i=0; i<userRecipes.length; i++) {%>
+            <tr>
+                <th>Title</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= userRecipes[i].title%>
+                </td>
+            </tr>
+            <tr>
+
+                <th>Recipe</th>
+            </tr>
+            <tr>
+
+                <td>
+                    <%= userRecipes[i].recipe%>
+                </td>
+            </tr>
+            <tr>
+                <th>Ingredients</th>
+            </tr>
+            <tr>
+                <% for(var j=0; j<userRecipes[i].ingredients.length; j++) {%>
+            <tr>
+                <td>
+                    <%= userRecipes[i].ingredients[j]%>
+                </td>
+            </tr>
+            <% } %>
+            </tr>
+            <% } %>
+        </table>
+        <!-- <div class="container">
+            <div class="row">
+                <% for(var i=0; i<userRecipes.length; i++) {%>
+            <h5>Title</h5>
+            <p class="col-lg">
+                <%= userRecipes[i].title%>
+            </p>
+            <h5>Recipe</h5>
+            <p class="col-lg">
+                <%= userRecipes[i].recipe%>
+            </p>
+            <h5>Ingredients</h5>
+            <% for(var j=0; j<userRecipes[i].ingredients.length; j++) {%>
+            <p class="col-lg"> 
+                <%= userRecipes[i].ingredients[j]%>
+            </p>
+            <% } %>
+            <% } %>
+        </div>
+        </div> -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/underscore.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/pizzas.js"></script>
+
+</body>
+
+</html>

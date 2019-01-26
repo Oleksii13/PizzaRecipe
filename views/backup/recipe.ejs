@@ -1,0 +1,128 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+
+<head>
+	<title>Login Menu</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<!-- load bootstrap css -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- load fontawesome -->
+
+	<!-- Bootstrap CDN -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+	<!-- My CSS -->
+	<link href="assets/css/style.css" rel="stylesheet" />
+	<script src="assets/js/pizzas.js"></script>
+	<script src="assets/js/underscore.js"></script>
+
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="page-header text-center">
+			<h1><span class="fa fa-codiepie"></span> My Recipe Page</h1>
+			<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+		</div>
+
+		<div class="row">
+
+			<!-- LOCAL INFORMATION -->
+			<div class="col-sm-12">
+				<div class="well">
+					<h3><span class="fa fa-user"></span> Recipe</h3>
+					<p>
+						<strong>id</strong>:
+						<%= user.id %><br>
+						<strong>username</strong>:
+						<%= user.username %><br>
+					</p>
+				</div>
+				<h2>Add a Pizza</h2>
+				<form class="recipe-form" action="/pizza" method="POST">
+					<a id="userId" data-id=<%=user.id %>></a>
+
+
+
+					<input type="text" id="pizza-title" name="pizza-title" placeholder="title"><br>
+					<input type="text" id="pizza-recipe" name="pizza-recipe" placeholder="recipe"><br>
+
+					<label for="vegy1">Cucumber</label>
+					<input type="number" class="quant" name="vegy1" data-name="cucumber" min="0" max="3" value="0">
+
+					<label for="vegy2">Tomato</label>
+					<input type="number" class="quant" name="vegy2" data-name="tomato" min="0" max="3" value="0">
+
+					<label for="vegy3">Pineapple</label>
+					<input type="number" class="quant" name="vegy3" data-name="pineapple" min="0" max="3" value="0">
+
+					<label for="vegy4">Avocado</label>
+					<input type="number" class="quant" name="vegy4" data-name="avocado" min="0" max="3" value="0"><br>
+
+					<label for="vegy5">Eggplant</label>
+					<input type="number" class="quant" name="vegy5" data-name="eggplant" min="0" max="3" value="0">
+
+					<label for="vegy6">Olive</label>
+					<input type="number" class="quant" name="vegy6" data-name="olive" min="0" max="3" value="0">
+
+					<label for="vegy7">Onion</label>
+					<input type="number" class="quant" name="vegy7" data-name="onion" min="0" max="3" value="0">
+
+					<label for="vegy8">Mushroom</label>
+					<input type="number" class="quant" name="vegy8" data-name="mushroom" min="0" max="3" value="0"><br>
+
+					<label for="vegy9">Garlic</label>
+					<input type="number" class="quant" name="vegy9" data-name="garlic" min="0" max="3" value="0">
+
+					<label for="vegy10">Spinach</label>
+					<input type="number" class="quant" name="vegy10" data-name="spinach" min="0" max="3" value="0">
+
+					<label for="vegy11">Cilantro</label>
+					<input type="number" class="quant" name="vegy11" data-name="cilantro" min="0" max="3" value="0">
+
+					<label for="vegy12">Chicken</label>
+					<input type="number" class="quant" name="vegy12" data-name="chicken" min="0" max="3" value="0"><br>
+
+					<label for="vegy13">Anchovy</label>
+					<input type="number" class="quant" name="vegy13" data-name="anchovy" min="0" max="3" value="0">
+
+					<label for="vegy14">Bacon</label>
+					<input type="number" class="quant" name="vegy14" data-name="bacon" min="0" max="3" value="0">
+
+					<label for="vegy15">Sausage</label>
+					<input type="number" class="quant" name="vegy15" data-name="sausage" min="0" max="3" value="0">
+
+					<label for="vegy16">Beef</label>
+					<input type="number" class="quant" name="vegy16" data-name="beef" min="0" max="3" value="0"><br>
+
+					<label for="vegy17">Ham</label>
+					<input type="number" class="quant" name="vegy17" data-name="ham" min="0" max="3" value="0">
+
+					<label for="vegy18">Pepperoni</label>
+					<input type="number" class="quant" name="vegy18" data-name="pepperoni" min="0" max="3" value="0">
+
+					<label for="vegy19">Salami</label>
+					<input type="number" class="quant" name="vegy19" data-name="salami" min="0" max="3" value="0">
+
+					<label for="vegy20">Banana</label>
+					<input type="number" class="quant" name="vegy20" data-name="banana" min="0" max="3" value="0"><br>
+
+					<p id="totalCal"></p>
+
+					<button type="submit" class="addPizza">Add a Pizza</button><br>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
